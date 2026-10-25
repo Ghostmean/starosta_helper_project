@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+
+# Node.js
+node_modules/
+dist/
+
+# Local schedule data can contain personal information
+*.xls
+*.xlsx
+
+# Editors and operating systems
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

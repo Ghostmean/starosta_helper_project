@@ -1,0 +1,63 @@
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      SCHEDULE_XLS_PATH: /app/data/schedule.xls
+      FRONTEND_DIST: /app/frontend-dist
+    volumes:
+      - ../schedule.xls:/app/data/schedule.xls:ro
+    expose:
+      - "8000"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/api/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  bot:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    profiles: ["bot"]
+    env_file:
+      - .env
+    environment:
+      SCHEDULE_XLS_PATH: /app/data/schedule.xls
+    volumes:
+      - ../schedule.xls:/app/data/schedule.xls:ro
+    command: ["python", "-m", "backend.bot"]
+    depends_on:
+      web:
+        condition: service_healthy
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+
+volumes:
+  caddy_data:
+  caddy_config:

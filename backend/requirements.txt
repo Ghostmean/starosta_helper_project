@@ -1,0 +1,10 @@
+aiogram
+alembic
+asyncmy
+fastapi
+xlrd
+pydantic-settings
+python-dotenv
+sqlalchemy
+httpx2
+uvicorn[standard]

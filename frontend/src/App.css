@@ -1,0 +1,382 @@
+#root {
+  min-height: 100svh;
+}
+
+.app-shell {
+  width: min(100%, 540px);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 0 22px 28px;
+}
+
+.topbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-mark {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  padding: 5px;
+  border-radius: 8px;
+  background: var(--green);
+}
+
+.brand-mark span {
+  flex: 1;
+  border-radius: 2px;
+  background: #173c35;
+}
+
+.brand-mark span:nth-child(1) { height: 45%; }
+.brand-mark span:nth-child(2) { height: 75%; }
+.brand-mark span:nth-child(3) { height: 100%; }
+
+.brand-name {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: -0.3px;
+}
+
+.beta-badge {
+  margin-left: auto;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.welcome {
+  padding: 31px 2px 25px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--green-dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.welcome h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(39px, 11vw, 55px);
+  font-weight: 800;
+  letter-spacing: -2.8px;
+  line-height: 0.98;
+}
+
+.welcome-copy {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.schedule-panel {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 19px;
+  background: var(--panel);
+  box-shadow: 0 12px 36px rgb(32 48 41 / 6%);
+}
+
+.group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 20px 18px;
+}
+
+.group-heading .eyebrow {
+  margin-bottom: 5px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.group-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.calendar-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 21px;
+}
+
+.day-picker {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding: 0 16px 16px;
+}
+
+.day-button {
+  min-width: 0;
+  padding: 10px 2px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+.day-button:active {
+  transform: scale(0.95);
+}
+
+.day-button.selected {
+  background: var(--green);
+  color: #183b33;
+}
+
+.lesson-list {
+  min-height: 220px;
+  padding: 18px 17px 17px;
+  border-top: 1px solid var(--line);
+  background: var(--subtle);
+}
+
+.day-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 2px 13px;
+}
+
+.day-title h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.day-title span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.lesson-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 13px;
+  padding: 15px 13px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--panel);
+}
+
+.lesson-card + .lesson-card {
+  margin-top: 9px;
+}
+
+.lesson-time {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 1px;
+  color: var(--ink);
+}
+
+.lesson-time strong {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.lesson-time span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.lesson-time i {
+  position: absolute;
+  top: 3px;
+  right: -7px;
+  bottom: 2px;
+  width: 2px;
+  border-radius: 4px;
+  background: var(--green);
+}
+
+.lesson-details {
+  min-width: 0;
+}
+
+.week-tag {
+  display: inline-flex;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.week-top,
+.week-bottom {
+  background: var(--gold-soft);
+  color: var(--gold-dark);
+}
+
+.lesson-details h4 {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: -0.2px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.lesson-meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.room-tag {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: var(--subtle);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.empty-state,
+.loading-state,
+.error-state {
+  display: grid;
+  min-height: 184px;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.empty-state > span {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  margin-bottom: 10px;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 22px;
+}
+
+.empty-state p,
+.loading-state p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 12px;
+  border: 2px solid var(--line);
+  border-top-color: var(--green-dark);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+.error-state {
+  padding: 24px;
+}
+
+.error-state h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.error-state p {
+  margin: 9px 0 15px;
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.retry-button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--green);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 19px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-dark);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 360px) {
+  .app-shell {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .day-picker {
+    gap: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .lesson-list {
+    padding-right: 11px;
+    padding-left: 11px;
+  }
+}
